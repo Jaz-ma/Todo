@@ -19,7 +19,7 @@
             <a  href="">Dashboard</a>
         </li>
         <li class="p-3">
-            <a  href="">Posts</a>
+            <a  href="{{route('tasks.index')}}">Tasks</a>
         </li>
     </ul>
     <ul class="flex items-center">
@@ -41,7 +41,7 @@
             <a href="">Login</a>
         </li>
         <li class="p-3">
-            <a href="">Register</a>
+            <a href="{{route('register')}}">Register</a>
         </li>
 
         @endguest
