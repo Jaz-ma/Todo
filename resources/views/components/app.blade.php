@@ -11,13 +11,20 @@
 </head>
 <body class="bg-blue-200">
 <nav class="flex justify-between p-6 -white mb-16 border-solid border-b-2 border-black">
+
     <ul class="flex items-center">
+        @guest
+
         <li class="p-3">
             <a href="/">Home</a>
         </li>
+        @endguest
+      @auth
+
       <li class="p-3">
             <a  href="{{route('tasks.index',auth()->user())}}">Tasks</a>
         </li>
+      @endauth
     </ul>
     <ul class="flex items-center">
         @auth
