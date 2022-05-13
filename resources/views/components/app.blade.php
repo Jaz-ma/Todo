@@ -25,10 +25,10 @@
     <ul class="flex items-center">
         @auth
         <li class="p-3">
-            <a href="/"></a>
+            <a href="/">{{auth()->user()->username}}</a>
         </li>
         <li class="p-3">
-            <form method="POST" action="">
+            <form method="POST" action="{{route('logout')}}">
             @csrf
                 <button>Logout</button>
             </form>
@@ -38,7 +38,7 @@
         @guest
 
         <li class="p-3">
-            <a href="">Login</a>
+            <a href="{{route('login.index')}}">Login</a>
         </li>
         <li class="p-3">
             <a href="{{route('register')}}">Register</a>
