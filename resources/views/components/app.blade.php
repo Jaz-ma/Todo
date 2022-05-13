@@ -16,7 +16,7 @@
             <a href="/">Home</a>
         </li>
       <li class="p-3">
-            <a  href="{{route('tasks.index')}}">Tasks</a>
+            <a  href="{{route('tasks.index',auth()->user())}}">Tasks</a>
         </li>
     </ul>
     <ul class="flex items-center">

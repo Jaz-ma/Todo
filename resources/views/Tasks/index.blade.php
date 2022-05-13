@@ -1,12 +1,30 @@
 <x-app>
 
-    <div class="w-full justify-center flex">
+    <div class=" justify-center flex ">
+        <div>
 
-        <div class="bg-white-200 p-6 w-8/12 rounded-lg text-center">
+        <div class="bg-white-200 p-12  rounded-lg ">
+            <form  method="POST" action="{{route('tasks.store')}}">
+                @csrf
+                <textarea name="taskName" id="task" cols="30" rows="5" class="bg-ray-100 border-2 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" placeholder="Post something!"></textarea>
+                <button type="submit" class="py-4 px-3 bg-blue-500 rounded-lg font-medium mt-6 text-white">Add Task</button>
+                @error('task')
+                <div class="text-red text-sm mt-2">
+                    {{$message}}
+                </div>
+
+                @enderror
+            </form>
+        </div>
+        <div class="bg-white-200 p-6  rounded-lg text-center">
 
              <p class="text-3xl fond-semibold mt-2"> Set up task lists, mark them done or delete tasks from the list</p>
-             <x-task/>
 
+             @foreach ($tasks as $task )
+                <x-task-card :task="$task"/>
+             @endforeach
+
+        </div>
         </div>
     </div>
 

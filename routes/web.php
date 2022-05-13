@@ -22,7 +22,8 @@ Route::get('/', function () {
 });
 // Task Routes
 
-Route::get('/tasks',[TaskController::class,'index'])->name('tasks.index')->middleware('auth');
+Route::get('/tasks/{user:username}',[TaskController::class,'index'])->name('tasks.index')->middleware('auth');
+Route::post('/task/store',[TaskController::class,'store'])->name('tasks.store')->middleware('auth');
 
 //Register
 
