@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 // Task Routes
 
-Route::get('/tasks',[TaskController::class,'index'])->name('tasks.index');
+Route::get('/tasks',[TaskController::class,'index'])->name('tasks.index')->middleware('auth');
 
 //Register
 

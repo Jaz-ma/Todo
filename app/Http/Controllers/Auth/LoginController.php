@@ -25,7 +25,7 @@ class LoginController extends Controller
         if(Auth::attempt($formFields)){
             $request->session()->regenerate();
 
-            return redirect('/')->with('message',"Welcome". $formFields['username']);
+            return redirect('/')->with('message',"Welcome ". $formFields['username']);
         }
         return redirect()->back()->with('message','Invalid Credentials');
     }

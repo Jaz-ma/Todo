@@ -9,16 +9,13 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <title>Todo</title>
 </head>
-<body class="bg-gray-200">
+<body class="bg-blue-200">
 <nav class="flex justify-between p-6 -white mb-16 border-solid border-b-2 border-black">
     <ul class="flex items-center">
         <li class="p-3">
-            <a href="/">home</a>
+            <a href="/">Home</a>
         </li>
-        <li class="p-3">
-            <a  href="">Dashboard</a>
-        </li>
-        <li class="p-3">
+      <li class="p-3">
             <a  href="{{route('tasks.index')}}">Tasks</a>
         </li>
     </ul>
