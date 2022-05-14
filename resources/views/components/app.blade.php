@@ -56,5 +56,16 @@
 </nav>
 {{$slot}}
 <x-flash-message/>
+
+<script>
+    let dad = document.getElementById('dad');
+
+for (let i = 0; i < dad.children.length; i++) {
+    dad.children[i].children[0].innerHTML=i+1;
+
+}
+</script>
+
+
 </body>
 </html>

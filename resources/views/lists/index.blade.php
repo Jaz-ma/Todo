@@ -16,17 +16,15 @@
                 @enderror
             </form>
         </div>
-        <div class="bg-white-200 p-6  rounded-lg text-center">
+        <div id="dad" class="bg-white-200 p-6  rounded-lg text-center">
 
-             <p class="text-3xl fond-semibold mt-2"> Set up your task lists </p>
 
              @foreach ($lists as $list )
+
                 <x-list-card :list="$list"/>
              @endforeach
 
         </div>
         </div>
     </div>
-
-
 </x-app>

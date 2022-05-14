@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lists;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -10,20 +11,24 @@ class TaskController extends Controller
 {
     //Tasks List Page
 
-    public function index(User $user){
+    public function index(Lists $list){
         return view('Tasks.index',[
-            'tasks'=>$user->tasks()->latest()->get()
+            'tasks'=>$list->tasks()->latest()->get()
         ]);
     }
 
     //Store Task
 
-    public function store(Request $request){
-
+    public function store(Request $request, Lists $list){
+        dd($list->user());
         $this->validate($request,[
-            'taskName'=>'required'
+            'taskName'=>'required',
+
         ]);
-        $request->user()->tasks()->create($request->only('taskName'));
+        $request->user()->lists()->tasks()->create([
+            'taskName'=>$request->taskName,
+            'lists_id'
+        ]);
         return redirect()->back()->with('message','Task Created');
     }
 

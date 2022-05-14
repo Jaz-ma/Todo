@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 // Task Routes
 
-Route::get('/tasks/{user:username}',[TaskController::class,'index'])->name('tasks.index')->middleware('auth');
+Route::get('/tasks/{list}',[TaskController::class,'index'])->name('tasks.index')->middleware('auth');
 Route::post('/tasks/store',[TaskController::class,'store'])->name('tasks.store')->middleware('auth');
 Route::delete('tasks/delete/{task}',[TaskController::class,'destroy'])->name('tasks.destroy')->middleware('auth');
 

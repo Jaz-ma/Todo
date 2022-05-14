@@ -26,6 +26,6 @@ class RegisterController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('tasks.index',auth()->user());
+        return redirect()->route('lists.index',auth()->user());
     }
 }

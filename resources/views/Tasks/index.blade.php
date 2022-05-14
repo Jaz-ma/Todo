@@ -16,9 +16,8 @@
                 @enderror
             </form>
         </div>
-        <div class="bg-white-200 p-6  rounded-lg text-center">
+        <div id='dad' class="bg-white-200 p-6  rounded-lg text-center">
 
-             <p class="text-3xl fond-semibold mt-2"> Set up task lists, mark them done or delete tasks from the list</p>
 
              @foreach ($tasks as $task )
                 <x-task-card :task="$task"/>

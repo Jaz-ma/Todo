@@ -13,11 +13,12 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
+
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('taskName');
-            $table->foreignId('list_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('lists_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

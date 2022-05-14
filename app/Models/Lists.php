@@ -14,7 +14,11 @@ class Lists extends Model
     ];
 
         public function tasks(){
-        return $this->hasMany(Lists::class);
+        return $this->hasMany(Task::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
 
