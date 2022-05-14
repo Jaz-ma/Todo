@@ -22,7 +22,7 @@
       @auth
 
       <li class="p-3">
-            <a  href="{{route('tasks.index',auth()->user())}}">Tasks</a>
+            <a  href="{{route('lists.index',auth()->user())}}">Task Lists</a>
         </li>
       @endauth
     </ul>

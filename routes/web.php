@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController ;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ListController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -39,5 +40,11 @@ Route::post('/logout',[LogoutController::class,'logout'])->name('logout');
 
 Route::get('/login',[LoginController::class,'index'])->name('login.index');
 Route::post('/login',[LoginController::class,'login'])->name('login');
+
+//Task Lists
+
+Route::get('/lists/{user:username}',[ListController::class,'index'])->name('lists.index')->middleware('auth');
+Route::post('/lists/store}',[ListController::class,'store'])->name('list.store')->middleware('auth');
+Route::delete('/lists/delete/{list:listName}',[ListController::class,'destroy'])->name('list.destroy')->middleware('auth');
 
 Route::get('phpinfo', fn () => phpinfo());
