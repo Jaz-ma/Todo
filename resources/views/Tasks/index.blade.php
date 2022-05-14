@@ -2,7 +2,9 @@
 
     <div class=" justify-center flex ">
         <div>
-
+            <h1 class="text-4xl text-center">
+                {{$list->listName}}
+            </h1>
         <div class="bg-white-200 p-12  rounded-lg ">
             <form  method="POST" action="{{route('tasks.store')}}">
                 @csrf

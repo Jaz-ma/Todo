@@ -44,7 +44,7 @@ class User extends Authenticatable
     ];
 
     public function tasks(){
-        return $this->hasManyThrough(Task::class, Lists::class,'user_id','lists_id','id','id');
+        return $this->hasMany(Task::class);
     }
 
     public function lists(){
