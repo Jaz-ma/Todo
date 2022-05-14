@@ -7,7 +7,8 @@
             <form  method="POST" action="{{route('tasks.store')}}">
                 @csrf
                 <textarea name="taskName" id="task" cols="30" rows="5" class="bg-ray-100 border-2 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" placeholder="Post something!"></textarea>
-                <button type="submit" class="py-4 px-3 bg-blue-500 rounded-lg font-medium mt-6 text-white">Add Task</button>
+                <input type="text" name="list_id" value="{{$list->id}}" class="invisible">
+                <button type="submit" class="py-4 px-3 bg-blue-500 rounded-lg font-medium mt-6 text-white ml-8">Add Task</button>
                 @error('taskName')
                 <div class="text-red text-sm mt-2">
                     {{$message}}

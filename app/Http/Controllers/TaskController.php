@@ -13,21 +13,21 @@ class TaskController extends Controller
 
     public function index(Lists $list){
         return view('Tasks.index',[
+            'list'=>$list,
             'tasks'=>$list->tasks()->latest()->get()
         ]);
     }
 
     //Store Task
 
-    public function store(Request $request, Lists $list){
-        dd($list->user());
+    public function store(Request $request){
         $this->validate($request,[
             'taskName'=>'required',
 
         ]);
-        $request->user()->lists()->tasks()->create([
-            'taskName'=>$request->taskName,
-            'lists_id'
+        $request->user()->tasks()->create([
+            'taskName'=> $request->taskName,
+            'lists_id'=>$request->list_id
         ]);
         return redirect()->back()->with('message','Task Created');
     }

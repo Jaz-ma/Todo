@@ -11,7 +11,10 @@ class Task extends Model
 
   protected  $fillable=[
         'taskName',
-        'user_id',
         'lists_id'
     ];
+
+    public function lists(){
+        return $this->belongsTo(Lists::class,'lists_id');
+    }
 }
