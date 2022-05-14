@@ -3,8 +3,12 @@
     <li class="text-3xl text-blue-500 p-4 border-4 border-blue-500 rounded-full">1</li>
     <li class="text-2xl overflow-hidden break-all px-16"> {{$task->taskName}} </li>
     <li>
-        <a href="">
-        <i class="fa-solid fa-trash text-2xl text-red-500"></i>
-        </a>
+        <form method="POST" action="{{route('tasks.destroy',$task->id)}}">
+            @csrf
+            @method('DELETE')
+            <button type="submit">
+                <i class="fa-solid fa-trash text-2xl text-red-500"></i>
+            </button>
+        </form>
     </li>
 </ul>

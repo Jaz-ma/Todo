@@ -27,4 +27,14 @@ class TaskController extends Controller
         return redirect()->back()->with('message','Task Created');
     }
 
+    //Delete Task
+
+    public function destroy(Task $task){
+
+        if(auth()->user()->id==$task->user_id){
+            $task->delete();
+            return redirect()->route('tasks.index',auth()->user()->username)->with('message','Task Deleted');
+        }
+        abort('403','Unauthorized action');
+    }
 }
